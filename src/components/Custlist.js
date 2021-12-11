@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import dayjs from 'dayjs';
 
 import {AgGridColumn, AgGridReact} from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';

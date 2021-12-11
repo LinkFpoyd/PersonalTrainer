@@ -9,23 +9,28 @@ export default function Trainlist (){
 
   const [trains, setTrains] = useState([]);
 
-
-
   useEffect(() => fetchData(), []);
 
   const fetchData = () => {
-    fetch('https://customerrest.herokuapp.com/api/trainings')
+    fetch('https://customerrest.herokuapp.com/gettrainings')
     .then(result => result.json())
-    .then(data => setTrains(data.content))
+    .then(data => setTrains(data))
+    console.log(trains);
   }
 
 
   const columns= [
     {field: "date", resizable: "true", sortable: "true", filter: "true", valueFormatter: (params) => {
       return moment(params.value).format('DD/MM/YYYY HH:mm')
-  } },
+    } },
     {headerName: "Duration (min)", field: "duration", sortable: "true", filter: "true" },
-    {field: "activity", sortable: "true", filter: "true" }]
+    {field: "activity", sortable: "true", filter: "true" },
+    {field: "customer.id", sortable: "true", filter: "true" },
+    {field: "customer.firstname", sortable: "true", filter: "true" },
+    {field: "customer.lastname", sortable: "true", filter: "true" }
+    
+    
+  ]
 
 
   return (
