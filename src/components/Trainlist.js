@@ -25,9 +25,9 @@ export default function Trainlist (){
     } },
     {headerName: "Duration (min)", field: "duration", sortable: "true", filter: "true" },
     {field: "activity", sortable: "true", filter: "true" },
-    {field: "customer.id", sortable: "true", filter: "true" },
-    {field: "customer.firstname", sortable: "true", filter: "true" },
-    {field: "customer.lastname", sortable: "true", filter: "true" }
+    {headerName: "Customer ID", field: "customer.id", sortable: "true", filter: "true" },
+    {headerName: "First Name", field: "customer.firstname", sortable: "true", filter: "true" },
+    {headerName: "Last Name", field: "customer.lastname", sortable: "true", filter: "true" }
     
     
   ]
