@@ -19,18 +19,9 @@ export default function Trainlist (){
     fetch('https://customerrest.herokuapp.com/api/trainings')
     .then(result => result.json())
     .then(data => setTrains(data.content))
-    formatDate();
   }
 
-  const formatDate = () => {
-    var i = 0;
-    console.log(trains);
-    for (i=0 ; i<trains.length; i++) {
-      setDate(trains[i].date)
-      
-      console.log(date + '' + i);
-    }
-  }
+
 
   return (
     <div className="ag-theme-alpine" style={{height: 400, width: 'auto', margin: 'auto'}}>
