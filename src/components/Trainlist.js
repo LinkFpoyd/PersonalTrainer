@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import dayjs from 'dayjs';
+import moment from 'moment';
 
 import {AgGridColumn, AgGridReact} from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
@@ -8,10 +8,8 @@ import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 export default function Trainlist (){
 
   const [trains, setTrains] = useState([]);
-  const [date, setDate] = useState('');
 
-  var dayjs = require('dayjs');
-  dayjs().format();
+
 
   useEffect(() => fetchData(), []);
 
@@ -22,14 +20,19 @@ export default function Trainlist (){
   }
 
 
+  const columns= [
+    {field: "date", resizable: "true", sortable: "true", filter: "true", valueFormatter: (params) => {
+      return moment(params.value).format('DD/MM/YYYY HH:mm')
+  } },
+    {headerName: "Duration (min)", field: "duration", sortable: "true", filter: "true" },
+    {field: "activity", sortable: "true", filter: "true" }]
+
 
   return (
     <div className="ag-theme-alpine" style={{height: 400, width: 'auto', margin: 'auto'}}>
            <AgGridReact
-               rowData={trains}>
-               <AgGridColumn field="date" resizable={true} sortable={ true } filter={ true }></AgGridColumn>
-               <AgGridColumn field="duration" sortable={ true } filter={ true }></AgGridColumn>
-               <AgGridColumn field="activity" sortable={ true } filter={ true }></AgGridColumn>
+              columnDefs={columns}
+              rowData={trains}>          
            </AgGridReact>
     </div>
   )

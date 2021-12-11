@@ -22,7 +22,7 @@ function App() {
       <BrowserRouter>
         <div>
           <Link to="/">Home</Link>{' '}
-          <Link to="/components/trainlist">Trainlist</Link>{' '}
+          <Link to="/components/trainlist">Training list</Link>{' '}
           <Link to="/components/custlist">Customer list</Link>{' '}
           <Routes>
             <Route exact path="/" element={<Frontpage />} />
